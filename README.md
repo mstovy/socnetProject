@@ -7,9 +7,11 @@ Use Gowalla data and find all communties using networkx code
 
 Select the tightest knit communiteis (most dense? shortest paths?)
 
-Display the general (avg?) location of the communites to a US map in an HTML doc
+Display the general (avg?) location of the communites to a US map i
 
 Overlay an existing map of the areas where the population is of low socio-econimc status
+
+Write the graph to an HTML doc that can be displayed in browser simply
 
 Include a breif description of our hypothesis & an analysis of how our results came out
 
