@@ -28,3 +28,5 @@ could implement something like [this](https://towardsdatascience.com/easy-steps-
 
 looks as if we may have to use matlab to use a base map to plot onto.
 [here](https://sensitivecities.com/so-youd-like-to-make-a-map-using-python-EN.html#.X6R5wy2ZNAY) are [some](https://stackoverflow.com/questions/19915266/drawing-a-graph-with-networkx-on-a-basemap) examples of how we can plot our data using coordinates and matlab. May just need to use networkx as a form of reading in the data and finding communities.
+
+the [mplleaflet](https://github.com/jwass/mplleaflet) library seems like it could be utilized sinze we are using coordinates.
