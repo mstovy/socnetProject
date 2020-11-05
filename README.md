@@ -17,11 +17,11 @@ Include a breif description of our hypothesis & an analysis of how our results c
 
 
 
-  issue 1 - how to display the networkx graph
+  issue 1 - Which cencus shapefile? by county, by ZIP code, by region? 
   
-  issue 2 - how do we overlay a graph onto the networkx graph
+  issue 2 - how will we determine what constitutes a tightly knit community
   
-  issue 3 - how will we determine what constitutes a tightly knit community
+  issue 3 - gowalla data uses "check-ins" for locational data, can this be reliable for representing where uses reside?
 
 
 resources:
