@@ -21,7 +21,7 @@ Include a breif description of our hypothesis & an analysis of how our results c
   
   issue 2 - how will we determine what constitutes a tightly knit community
   
-  issue 3 - gowalla data uses "check-ins" for locational data, can this be reliable for representing where uses reside?
+  issue 3 - gowalla data uses "check-ins" for locational data, can this be reliable for representing where users reside?
 
 
 resources:
@@ -31,4 +31,5 @@ could implement something like [this](https://towardsdatascience.com/easy-steps-
 looks as if we may have to use matlab to use a base map to plot onto.
 [here](https://sensitivecities.com/so-youd-like-to-make-a-map-using-python-EN.html#.X6R5wy2ZNAY) are [some](https://stackoverflow.com/questions/19915266/drawing-a-graph-with-networkx-on-a-basemap) examples of how we can plot our data using coordinates and matlab. May just need to use networkx as a form of reading in the data and finding communities.
 
-the [mplleaflet](https://github.com/jwass/mplleaflet) library seems like it could be utilized sinze we are using coordinates.
+the [mplleaflet](https://github.com/jwass/mplleaflet) library seems like it could be utilized sense we are using coordinates.
+    pros: can embed slippy maps, plots on coordinates, no need to apply a basemap   cons: can not apply a basemap
