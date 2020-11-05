@@ -2,6 +2,7 @@
 
 Proposition:
 
+
 Use Gowalla data and find all communties using networkx code
 
 Select the tightest knit communiteis (most dense? shortest paths?)
@@ -13,9 +14,9 @@ Overlay an existing map of the areas where the population is of low socio-econim
 Include a breif description of our hypothesis & an analysis of how our results came out
 
 
+
   issue 1 - how to display the networkx graph
   
   issue 2 - how do we overlay a graph onto the networkx graph
   
   issue 3 - how will we determine what constitutes a tightly knit community
-  
