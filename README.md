@@ -9,7 +9,7 @@ Select the tightest knit communiteis (most dense? shortest paths?)
 
 Display the general (avg?) location of the communites to a US map i
 
-Overlay an existing map (find a basemap? maybe look for something that already exist that we can adapt the data to)of the areas where the population is of low socio-econimc status
+Overlay an existing map (find a shapefile? maybe look for a basemap that already exist and we can adapt the data to it easily) of the areas where the population is of low socio-econimc status
 
 Write the graph to an HTML doc that can be displayed in browser simply
 
