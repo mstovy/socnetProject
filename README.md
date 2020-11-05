@@ -20,3 +20,10 @@ Include a breif description of our hypothesis & an analysis of how our results c
   issue 2 - how do we overlay a graph onto the networkx graph
   
   issue 3 - how will we determine what constitutes a tightly knit community
+
+
+resources:
+
+could implement something like [this](https://towardsdatascience.com/easy-steps-to-plot-geographic-data-on-a-map-python-11217859a2db) but using networkx instead of matlab
+
+
