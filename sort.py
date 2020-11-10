@@ -1,36 +1,51 @@
 import os
-import reverse_geocoder as rg
-# import NodeClass
+import pandas as pd
 
-class NodeClass:
-    # id = 0
-    #x_coord = 0
-    #y_coord = 0
-    def __init__(self, idV, x_coord, y_coord):
-        self.idV = idV
-        self.x_coord = x_coord
-        self.y_coord = y_coord
+top = 49.3457868 # north lat
+left = -124.7844079 # west long
+right = -66.9513812 # east long
+bottom =  24.7433195 # south lat
 
-path = os.path.dirname(__file__)
-x = os.path.join(path,"Gowalla_totalCheckins.txt")
+# path = os.path.dirname(__file__)
+path = "/Users/henry/Documents/School/Fall 2020/CSCI 5800/"
+checkin_file_path = os.path.join(path, "Gowalla_totalCheckins.txt")
 
-nlist = []
-xCord = 0
-yCord = 0
+node_dict = {
+    "UserID": [],
+    "Latitude": [],
+    "Longitude": []
+    }
 
-f = open(x, "r")
-for i in f:
-    j = i.split()
-    idVar = j[0]
-    xCord = j[3]
-    yCord = j[4]
-    #print(checkin_set)
-    #twod_array[i] = checkin_set
-    node = NodeClass(idVar, xCord, yCord)
 
-# set boundaries for lat and long
-# dont include outside boundries
-# boundaries set for outside the US
-# with geocoder take out all non US countries
-# in geocoder this is the 'cc' field
-# create new file .csv format w/ pandas
+def read_checkin_file_generator():
+    with open(checkin_file_path) as file:
+        for line in file:
+            yield line
+
+def check_node_is_in_us(latitude, longitude):
+    inside_lat = bottom <= latitude and latitude <= top
+    inside_long = left <= longitude and longitude <= right
+    response = False
+    if inside_lat and inside_long:
+        response = True
+    return response
+
+def add_nodes_if_in_us():
+    for line in read_checkin_file_generator():
+        line_list = line.split()
+        latitude = float(line_list[2])
+        longitude = float(line_list[3])
+        node_in_us = check_node_is_in_us(latitude, longitude)
+        if node_in_us:
+            user_id = line[0]
+            node_dict["UserID"].append(user_id)
+            node_dict["Latitude"].append(latitude)
+            node_dict["Longitude"].append(longitude)
+
+def write_to_csv(nodes):
+    df = pd.DataFrame.from_dict(nodes)
+    df.to_csv("gowalla_checkins_usa_only.csv", index=False)
+
+if __name__ == "__main__":
+    add_nodes_if_in_us()
+    write_to_csv(node_dict)
