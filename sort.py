@@ -32,12 +32,12 @@ def check_node_is_in_us(latitude, longitude):
 
 def add_nodes_if_in_us():
     for line in read_checkin_file_generator():
-        line_list = line.split()
-        latitude = float(line_list[2])
-        longitude = float(line_list[3])
+        line_split = line.split()
+        latitude = float(line_split[2])
+        longitude = float(line_split[3])
         node_in_us = check_node_is_in_us(latitude, longitude)
         if node_in_us:
-            user_id = line[0]
+            user_id = line_split[0]
             node_dict["UserID"].append(user_id)
             node_dict["Latitude"].append(latitude)
             node_dict["Longitude"].append(longitude)
