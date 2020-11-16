@@ -7,7 +7,7 @@ import os
 path = os.path.dirname(__file__)
 checkin_file_path = os.path.join(path, "gowalla_checkins_average.csv")
 nodes_df = pd.read_csv(checkin_file_path)
-edges_file_path = os.path.join(path, "Gowalla_edges.csv")
+edges_file_path = os.path.join(path, "gowalla_edges_only_us.csv")
 edges_df = pd.read_csv(edges_file_path)
 graph = nx.Graph()
 user_ids = nodes_df['UserID']
@@ -28,10 +28,8 @@ def create_nodes():
         graph.add_node(row['UserID'], pos=(row['Latitude'], row['Longitude']))
 
 def create_edges():
-    print(edges_df)
     for index, row in edges_df.iterrows():
-        if (row['Source'] in user_ids) and  (row['Destination'] in user_ids):
-            graph.add_edge(row['Source'], row['Destination'])
+        graph.add_edge(row['Source'], row['Destination'])
 
 def draw_map():
     nx.draw(graph)

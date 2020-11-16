@@ -19,5 +19,5 @@ for index, row in edges_df.iterrows():
         edges_in_us['Source'].append(row['Source'])
         edges_in_us['Destination'].append(row['Destination'])
     
-df = pd.DataFrame.from_dict(edges_in_us)
+df = pd.DataFrame.from_dict(edges_in_us, index=False)
 df.to_csv('gowalla_edges_only_us.csv')
