@@ -2,6 +2,9 @@ import os
 import pandas as pd
 from Node import *
 
+# mode.py finds the most often checkin location for each Gowalla account
+# writes to file 'gowalla_us_only_no_outliers.csv'
+
 path = "/Users/henry/Documents/School/Fall 2020/CSCI 5800/"
 checkin_file_path = os.path.join(path, "gowalla_checkins_usa_only.csv")
 
