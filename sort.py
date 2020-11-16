@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 
+# sort.py finds accounts that have location check ins within the US
+
 top = 49.3457868 # north lat
 left = -124.7844079 # west long
 right = -66.9513812 # east long
