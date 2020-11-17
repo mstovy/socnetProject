@@ -11,8 +11,10 @@ path = os.path.dirname(__file__)
 checkin_file_path = os.path.join(path, "gowalla_checkins_average.csv")
 nodes_df = pd.read_csv(checkin_file_path)
 edges_file_path = os.path.join(path, "gowalla_edges_only_us.csv")
+# shape_path = os.path.join(path, "World_Countries.shp")
 edges_df = pd.read_csv(edges_file_path)
 graph = nx.Graph()
+# shape = nx.read_shp(shape_path)
 
 ax = plt.axes(projection = ccrs.Mercator())  # create a set of axes with Mercator projection
 ax.add_feature(cf.COASTLINE) 
@@ -28,8 +30,17 @@ def create_edges():
         graph.add_edge(row['Source'], row['Destination'])
 
 def draw_map():
-    # nx.draw(graph)
-    # nx.draw_networkx(graph, ax = ax)
+    for index, row in edges_df.iterrows():
+        source_long = nodes_df.loc[nodes_df['UserID']==row['Source']]['Longitude']
+        source_lat = nodes_df.loc[nodes_df['UserID']==row['Source']]['Latitude']
+
+        destination_long = nodes_df.loc[nodes_df['UserID']==row['Destination']]['Longitude']
+        destination_lat = nodes_df.loc[nodes_df['UserID']==row['Destination']]['Latitude']
+        print(source_long, source_lat, destination_long, destination_lat)
+        print(row['Source'], row['Destination'])
+
+        plt.plot([source_long, destination_long],[source_lat, destination_lat], color = 'blue', linewidth=0.05, marker='.', markersize = 0.1, transform=ccrs.Geodetic())
+
     plt.show()
 
 if __name__ == "__main__":
