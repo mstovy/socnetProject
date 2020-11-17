@@ -1,6 +1,6 @@
 import networkx as nx
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, mpld3
 import os
 import cartopy.crs as ccrs
 import cartopy.feature as cf
@@ -40,8 +40,19 @@ def draw_map():
         print(row['Source'], row['Destination'])
 
         plt.plot([source_long, destination_long],[source_lat, destination_lat], color = 'blue', linewidth=0.05, marker='.', markersize = 0.1, transform=ccrs.Geodetic())
+    plt.savefig('gowalla_network_map.png')
+    # place plot in html format?
+    # fig = plt.figure(figsize = (20,10))
+    # html_plot = mpld3.display(fig)
+    # # mpld3.save_html(html_plot, "gowalla_network_map1.html")
 
-    plt.show()
+    # test plot
+    #print(html_plot)
+    # plt.show()
+
+    # write to file
+    # with open("gowalla_network_map2.html", "w") as file:
+    #     file.write(html_plot)
 
 if __name__ == "__main__":
     start = time.perf_counter()
@@ -49,4 +60,4 @@ if __name__ == "__main__":
     #create_edges()
     draw_map()
     stop = time.perf_counter()
-    print("it took ", start - stop, " seconds to draw the map")
+    print("it took ", stop - start, " seconds to draw the map")
