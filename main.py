@@ -16,9 +16,9 @@ edges_df = pd.read_csv(edges_file_path)
 graph = nx.Graph()
 # shape = nx.read_shp(shape_path)
 
-ax = plt.axes(projection = ccrs.Mercator())  # create a set of axes with Mercator projection
-ax.add_feature(cf.COASTLINE) 
-ax.set_extent([-128,-62,20,50])
+axes = plt.axes(projection = ccrs.Mercator())  # create a set of axes with Mercator projection
+axes.add_feature(cf.COASTLINE) 
+axes.set_extent([-128,-62,20,50])
 
 def create_nodes():
     for index, row in nodes_df.iterrows():
@@ -31,6 +31,8 @@ def create_edges():
 
 def draw_map():
     for index, row in edges_df.iterrows():
+        if index == 100:
+            break
         source_long = nodes_df.loc[nodes_df['UserID']==row['Source']]['Longitude']
         source_lat = nodes_df.loc[nodes_df['UserID']==row['Source']]['Latitude']
 
@@ -40,7 +42,16 @@ def draw_map():
         print(row['Source'], row['Destination'])
 
         plt.plot([source_long, destination_long],[source_lat, destination_lat], color = 'blue', linewidth=0.05, marker='.', markersize = 0.1, transform=ccrs.Geodetic())
-    plt.savefig('gowalla_network_map.png')
+    # plt.savefig('gowalla_network_map.png')
+    plt.draw()
+    fig = plt.figure(1,figsize=(100, 50))
+    # fig, ax = plt.subplots()
+    # ax = axes.plot(111)
+    # plt.show()
+    # html_fig = mpld3.fig_to_html(fig)
+    mpld3.save_html(fig, 'test.html')
+    # plt.show()
+    # mpld3.display(fig)
     # place plot in html format?
     # fig = plt.figure(figsize = (20,10))
     # html_plot = mpld3.display(fig)
