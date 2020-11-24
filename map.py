@@ -6,7 +6,7 @@ import numpy
 path = os.path.dirname(__file__)
 checkin_file_path = os.path.join(path, "gowalla_checkins_average.csv")
 nodes_df = pd.read_csv(checkin_file_path)
-edges_file_path = os.path.join(path, "gowalla_edges_only_us.csv")
+edges_file_path = os.path.join(path, "gowalla_removed_edges_1_4.csv")
 edges_df = pd.read_csv(edges_file_path)
 geocodes = {
     'SourceLat': [],
@@ -28,13 +28,7 @@ for index, row in edges_df.iterrows():
     geocodes['DestLat'].append(destination_lat)
     geocodes['DestLong'].append(destination_long)
 
-    # source = {"lat": source_lat, "long": source_long}
-    # dest = {"lat": destination_lat, "long": destination_long}
-    # geocode_entry.append(source)
-    # geocode_entry.append(dest)
-    # geocodes.append(geocode_entry)
-
 df = pd.DataFrame.from_dict(geocodes)
-df.to_csv("gowalla_edge_geocodes.csv", index=False)
+df.to_csv("gowalla_edge_geocodes_5.csv", index=False)
 
     

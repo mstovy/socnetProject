@@ -49,34 +49,34 @@
       }
     });
 
-    // var edgeData;
-    // Papa.parse('./gowalla_edge_geocodes.csv', {
-    //   header:true,
-    //   download: true,
-    //   dynamicTyping: true,
-    //   complete: function(results) {
-    //     edgeData = results.data;
-    //     drawEdges();
-    //   }
-    // });
+    var edgeData;
+    Papa.parse('./gowalla_edge_geocodes_5.csv', {
+      header:true,
+      download: true,
+      dynamicTyping: true,
+      complete: function(results) {
+        edgeData = results.data;
+        drawEdges();
+      }
+    });
 
-    // async function drawEdges() {
-    //   await Promise.all(edgeData.map(async (edge) => {
-    //     var edgePath = [
-    //       { lat: edge['SourceLat'], lng: edge['SourceLong']},
-    //       { lat: edge['DestLat'], lng: edge['DestLong']},
-    //     ];
-    //     var line = new google.maps.Polyline({
-    //       path: edgePath,
-    //       geodesic: true,
-    //       strokeColor: '#FF0000',
-    //       strokeOpacity: 1.0,
-    //       strokeWeight: 0.05,
-    //     });
+    async function drawEdges() {
+      await Promise.all(edgeData.map(async (edge) => {
+        var edgePath = [
+          { lat: edge['SourceLat'], lng: edge['SourceLong']},
+          { lat: edge['DestLat'], lng: edge['DestLong']},
+        ];
+        var line = new google.maps.Polyline({
+          path: edgePath,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 0.05,
+        });
 
-    //     line.setMap(map);
-    //   }));
-    // }
+        line.setMap(map);
+      }));
+    }
 
     // Create the Google Map…
     var map = new google.maps.Map(d3.select('#map').node(), {
