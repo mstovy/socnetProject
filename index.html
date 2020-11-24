@@ -49,6 +49,7 @@
       }
     });
 
+<<<<<<< HEAD
     var edgeData;
     Papa.parse('./gowalla_edge_geocodes_5.csv', {
       header:true,
@@ -77,6 +78,36 @@
         line.setMap(map);
       }));
     }
+=======
+     var edgeData;
+     Papa.parse('./gowalla_edge_geocodes.csv', {
+       header:true,
+       download: true,
+       dynamicTyping: true,
+       complete: function(results) {
+         edgeData = results.data;
+         drawEdges();
+       }
+     });
+
+     async function drawEdges() {
+       await Promise.all(edgeData.map(async (edge) => {
+         var edgePath = [
+           { lat: edge['SourceLat'], lng: edge['SourceLong']},
+           { lat: edge['DestLat'], lng: edge['DestLong']},
+         ];
+         var line = new google.maps.Polyline({
+           path: edgePath,
+           geodesic: true,
+           strokeColor: '#FF0000',
+           strokeOpacity: 1.0,
+           strokeWeight: 0.05,
+         });
+
+         line.setMap(map);
+       }));
+     }
+>>>>>>> 095652909dced4ea8f0b9473e152a1a2051e4430
 
     // Create the Google Map…
     var map = new google.maps.Map(d3.select('#map').node(), {

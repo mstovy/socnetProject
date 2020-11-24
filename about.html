@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Final Project for Socail Networking & Informatics</title>
+	<meta name="description" content="CSCI 5800 - 005 Final Project">
+	<meta name="author" content="MS & HT">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<h1>Final Project for Social Networking & Informatics</h1>
+<h2>Micah Stovall & Henry Tan</h2>
+
+<div class="topnav">
+	<img src="images/cu-standalone.png" alt="cu logo" />
+	<a href="page.html">Home</a>
+	<a class="active" href="about.html">About Project</a>
+	<a href="index.html">Map</a>
+</div>
+
+<body>
+	<!--
+	<script src="js/scripts.js"></script>
+	-->
+	<h3>Proposal</h3>
+	<p>For Our project we used the data set from Gowalla to analyze if people of lower economic status tend to have strong ties and exist in smaller tighter knit communities. We intend to extract the communities from the Gowalla dataset and analyze the network by applying an economic map over a map of the communities found in our search. By scaling the data down to only US locations, we were better able to determine the communities that exist within the network. We intended to determine the communities by finding strong ties and determining the bridges that exist in the system, then removing them using the gervin newman algorithm. In order to find these communities, we are assuming that people in poverty tend to have stronger ties within their communities and this will help us produce the data we need to analyze the networks of people in poverty to compare agianst the map of economic status within the US.</p>
+	<p>Our assumption is that people in poverty tend to depend highly on their strong ties rather than weak ties. So, we wanted to analyze the impact that this may have on the size of their social networks and their access to social networks.</p>
+	<h3>Data</h3>
+	<p>The data set that is used for this project was obtained from <a href="http://snap.stanford.edu">SNAP</a> and the set that we chose to use is the <a href="http://snap.stanford.edu/data/loc-Gowalla.html">Gowalla location based data.</a> Which we found to have location points across the globe.</p>
+	<h3>Manipulation of Data</h3>
+	<p>We only wanted to examine and analyze the data that exist in the US, so we scaled down to data locations only within the bounds of latitudes from 24.7433195 to 49.3457868 and longitundinal bounds from -124.7844079 to -66.9513812. This helped speed up the mapping of data onto the viewable map.</p>
+	<p>Since users checked their location with Gowalla quite frequently, we didn't know which particular coordinate location to use for each user when plotting onto a map. To solve this we calculated the mode for each user and chose the most commonly checked in loaction for their position on the map.</p>
+	<p>Since users checked their location with Gowalla quite frequently, we didn't know which particular coordinate location to use for each user when plotting onto a map. To solve this we calculated the mode for each user and chose the most commonly checked in loaction for their position on the map.</p>
+</body>
+	
